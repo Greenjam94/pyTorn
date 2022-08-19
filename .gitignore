@@ -1,0 +1,12 @@
+# ignore venv
+Include/
+Lib/
+Scripts/
+pyvenv.cfg
+
+# ignore pytest
+.pytest_cache/
+tests/__pycache__/
+
+# ignore secrets
+.env
