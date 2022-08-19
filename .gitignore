@@ -4,6 +4,9 @@ Lib/
 Scripts/
 pyvenv.cfg
 
+# ignore cache
+/torn/__pycache__/
+
 # ignore pytest
 .pytest_cache/
 tests/__pycache__/

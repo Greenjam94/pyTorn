@@ -9,22 +9,22 @@ In order to get an edge in the game, an API was provided. This interface was cre
 
 # Environment setup
 
-Clone this repo `...`
-Cd to main folder `cd .`
-Setup venv `python -m venv .`
-Activate on windows using Powershell `.\Scripts\Activate.ps1`
-install requirements (in venv) `pip install -r requirements.txt`
-Copy .env.template to .env and add a correct API key
+- Clone this repo from Github
+- Change directory to main folder `cd .`
+- Setup venv `python -m venv .`
+- Activate on windows using Powershell `.\Scripts\Activate.ps1`
+- Install requirements (in venv) `pip install -r requirements.txt`
+- Copy .env.template to .env and add a correct API key
 
 # References
 
 ## Torn
-Torn API https://www.torn.com/api.html
-Torn Docs https://wiki.torn.com/wiki/API
+- Torn API https://www.torn.com/api.html
+- Torn Docs https://wiki.torn.com/wiki/API
 
 ## Setup
-Venv https://docs.python.org/3/library/venv.html
+- Venv https://docs.python.org/3/library/venv.html
 
-## initial help
-First API wrapper guide https://semaphoreci.com/community/tutorials/building-and-testing-an-api-wrapper-in-python
-Second API wrapper guide https://medium.com/analytics-vidhya/creating-a-python-api-wrapper-ally-invest-api-568934a1411c
+## Initial help with design
+- First API wrapper guide https://semaphoreci.com/community/tutorials/building-and-testing-an-api-wrapper-in-python
+- Second API wrapper guide https://medium.com/analytics-vidhya/creating-a-python-api-wrapper-ally-invest-api-568934a1411c
