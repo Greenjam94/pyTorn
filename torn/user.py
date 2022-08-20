@@ -2,11 +2,12 @@ from datetime import timezone
 import datetime
 
 from .urls import *
+from .storage import create_connection, insert_user
 
 class User(object):
-    def __init__(self, TornApi):
+    def __init__(self, TornApi, player_id=''):
         self.api = TornApi
-        self.raw = self.api.get_user()
+        self.raw = self.api.get_user(player_id)
         self.last_updated = datetime.datetime.now(timezone.utc)
 
         # Json "parsing"
@@ -36,6 +37,15 @@ class User(object):
         self.icons = self.raw['basicicons']
         self.states = self.raw['states']
         self.last_action = self.raw['last_action']
+
+        # Store user record to sqlite database
+        conn = create_connection(self.api.db_file)
+        user_dict = [self.player_id, self.level, self.age, self.donator, self.name,
+            self.revivable, self.life['current'], self.life['maximum'],
+            self.life['fulltime'], self.state, self.status['description'],
+            self.status['until'], self.faction['faction_id'], self.states['hospital_timestamp'],
+            self.states['jail_timestamp'], self.last_action['status'], self.last_action['timestamp']]
+        insert_user(conn, user_dict)
 
     def attack_link(self):
         return urls().get_attack().format(target=self.player_id)

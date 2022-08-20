@@ -13,3 +13,5 @@ tests/__pycache__/
 
 # ignore secrets
 .env
+torn/data/*
+sqlite.db

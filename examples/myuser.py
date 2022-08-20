@@ -6,8 +6,8 @@ from torn import TornApi
 from torn.user import User
 
 
-ta = TornApi(os.getenv('API_KEY'))
+ta = TornApi(os.getenv('API_KEY'), os.getenv('DB_FILE'))
 my = User(ta)
 print(my.name)
-print(my.attack_link())
-print(my.raw)
+# print(my.attack_link())
+# print(my.raw)

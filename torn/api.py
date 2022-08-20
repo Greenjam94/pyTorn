@@ -3,10 +3,23 @@ import json
 
 from .errors import *
 from .urls import *
+from .storage import *
 
 class TornApi:
-    def __init__(self, torn_api_key):
-        self.api_key = torn_api_key
+    def __init__(self, torn_api_key=None, db_file='sqlite.db'):
+
+        # Attempt to read from exisiting sqlite db table, else create database tables
+        try:
+            create_connection(db_file)
+            key_from_db = sqlite_query(db_file, "SELECT value, acces_level, player_id FROM keys LIMIT 1;")
+        except:
+            create_faction_table(db_file)
+            create_users_table(db_file)
+            create_keys_table(db_file)
+
+        # Set instance variables
+        self.api_key = torn_api_key if torn_api_key else key_from_db[0]
+        self.db_file = db_file
         self.urls = urls()
         self.session = requests.Session()
         self.session.params = {}
